@@ -1,0 +1,11 @@
+{
+  "name_aliases": {
+    "john": ["john", "johnny", "jon"],
+    "jane": ["jane", "janey"],
+    "alex": ["alex", "alexander", "xander"]
+  },
+  "discord_id_to_name": {
+    "123456789012345678": "John",
+    "987654321098765432": "Jane"
+  }
+}
