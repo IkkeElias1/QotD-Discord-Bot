@@ -152,8 +152,7 @@ def draw_decorations(draw, fonts):
     """Draw decorative elements on the image."""
     # Top accent line
     draw.rectangle([(50, 50), (IMAGE_WIDTH - 50, 55)], fill=ACCENT_COLOR)
-    # Bottom accent line
-    draw.rectangle([(50, IMAGE_HEIGHT - 55), (IMAGE_WIDTH - 50, IMAGE_HEIGHT - 50)], fill=ACCENT_COLOR)
+    # Removed bottom accent line. It was easier than fixing the text
     
     # Title
     title = "QUOTE OF THE DAY"
