@@ -93,6 +93,16 @@ Map name variations and Discord IDs to canonical names:
 }
 ```
 
+### Custom Fonts
+By default, the system uses standard OS fonts. On **Linux**, this may result in smaller-than-intended text. You can override the default font on Linux, Windows, or macOS by following these steps:
+
+1. **Download** a font file in `.ttf` (TrueType) format.
+2. **Rename** the file to `font.ttf`.
+3. **Move** the file into the project's **root directory**.
+
+> [!IMPORTANT]
+> Ensure the filename is exactly `font.ttf` for the system to recognize it on startup.
+
 ## Advanced Name Matching System
 
 The bot includes a sophisticated nickname resolution system that handles:
