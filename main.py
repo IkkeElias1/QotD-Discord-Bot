@@ -18,7 +18,8 @@ import pytz
 # Import modules
 from config import (
     TOKEN, QUOTES_CHANNEL_ID, GENERAL_CHANNEL_ID,
-    NAME_ALIASES, DISCORD_ID_TO_NAME, reload_aliases
+    NAME_ALIASES, DISCORD_ID_TO_NAME, reload_aliases,
+    TOP_AUTHORS
 )
 from image import create_quote_image
 from quotes import (
@@ -417,7 +418,7 @@ async def match_test_command(interaction: discord.Interaction, query: str):
     
     if results:
         lines.append("**Matches Found:**")
-        for name, score, info in results[:10]:
+        for name, score, info in results[:TOP_AUTHORS]:
             match_type = info.get('match_type', 'unknown')
             lines.append(f"  • **{name}** - {score:.1%} ({match_type})")
             
@@ -472,7 +473,7 @@ async def stats_command(interaction: discord.Interaction):
     lines = [f"**Quote Statistics**\n", f"Total quotes: {len(bot.quotes)}\n"]
     lines.append("\n**Top Authors:**")
     
-    for author, count in sorted_authors[:10]:
+    for author, count in sorted_authors[:TOP_AUTHORS]:
         lines.append(f"• {author}: {count}")
     
     await interaction.response.send_message('\n'.join(lines))

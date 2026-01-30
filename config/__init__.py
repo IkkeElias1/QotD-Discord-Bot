@@ -23,6 +23,9 @@ GENERAL_CHANNEL_ID = int(os.getenv('GENERAL_CHANNEL_ID', 0))
 # IMAGE SETTINGS
 # =============================================================================
 
+# Number of top authors to show in stats and match tests
+TOP_AUTHORS = int(os.getenv('TOP_AUTHORS', 10))
+
 IMAGE_WIDTH = int(os.getenv('IMAGE_WIDTH', 1200))
 IMAGE_HEIGHT = int(os.getenv('IMAGE_HEIGHT', 675))
 BACKGROUND_COLOR = (30, 30, 40)
