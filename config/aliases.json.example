@@ -1,11 +1,159 @@
 {
+  "manual_overrides": {
+    "faxekondi_lover": {
+      "canonical_name": "Jonathan",
+      "confidence": 1.0,
+      "match_type": "associative",
+      "notes": "References favorite Danish soda"
+    },
+    "ikkeelias": {
+      "canonical_name": "Elias",
+      "confidence": 1.0,
+      "match_type": "username",
+      "notes": "Discord username indicating it's 'not' Elias"
+    },
+    "inf_gustav": {
+      "canonical_name": "Gustav",
+      "confidence": 1.0,
+      "match_type": "username",
+      "notes": "Gaming/Discord username"
+    },
+    "minimalitet": {
+      "canonical_name": "Mini",
+      "confidence": 1.0,
+      "match_type": "username",
+      "notes": "Play on minimality"
+    },
+    "valdemarskafte": {
+      "canonical_name": "Valdemar",
+      "confidence": 1.0,
+      "match_type": "associative",
+      "notes": "Danish cultural reference"
+    },
+    "Oskar": {
+      "canonical_name": "Gustav Husted",
+      "confidence": 0.9,
+      "match_type": "misnomer",
+      "notes": "Common misnaming"
+    },
+    "porno": {
+      "canonical_name": "Gustav Vagner Pørtner Toft",
+      "confidence": 1.0,
+      "match_type": "nickname",
+      "notes": "Distinguishes from regular Gustav"
+    },
+    "porno torst": {
+      "canonical_name": "Gustav Vagner Pørtner Toft",
+      "confidence": 1.0,
+      "match_type": "nickname",
+      "notes": "ASCII variant"
+    },
+    "gustav_pt": {
+      "canonical_name": "Gustav Vagner Pørtner Toft",
+      "confidence": 1.0,
+      "match_type": "abbreviation",
+      "notes": "Abbreviated form"
+    },
+    "joe nation": {
+      "canonical_name": "Jonathan",
+      "confidence": 0.95,
+      "match_type": "phonetic_play",
+      "notes": "Phonetic joke on Jonathan"
+    },
+    "joenation": {
+      "canonical_name": "Jonathan",
+      "confidence": 0.95,
+      "match_type": "phonetic_play",
+      "notes": "Phonetic joke on Jonathan"
+    },
+    "walmart": {
+      "canonical_name": "Valdemar",
+      "confidence": 0.90,
+      "match_type": "phonetic",
+      "notes": "Sounds similar to Valdemar"
+    }
+  },
   "name_aliases": {
-    "john": ["john", "johnny", "jon"],
-    "jane": ["jane", "janey"],
-    "alex": ["alex", "alexander", "xander"]
+    "jonathan": ["jon", "jona", "johnny", "jonne", "jonies", "jonis", "jonethen", "joenathan", "jones"],
+    "valdemar": ["valde", "valdemansen"],
+    "gustav": ["gansen", "gusdav"],
+    "gustav husted": ["huansen"],
+    "gustav vagner pørtner Toft": ["porno tansen", "torst", "tansen", "gustav_pt", "Mister Vagner", "portner", ""],
+    "elias": ["elais", "ansen"],
+    "jesper": ["jepser", "jansen"],
+    "magnus": ["mansen"],
+    "mini": ["minimalansen"],
+    "maxi": ["maximus", "maxansen"],
+    "noah": ["noansen"]
   },
   "discord_id_to_name": {
-    "123456789012345678": "John",
-    "987654321098765432": "Jane"
+    "708408693393457163": "Jonathan",
+    "491260143833579530": "Elias",
+    "474874341830688778": "Noah",
+    "747141465527812267": "Gustav H",
+    "782852615075004426": "Valdemar",
+    "581452298107224065": "Gustav Vagner Pørtner Toft"
+  },
+  "cluster_map": {
+    "Person_1": {
+      "canonical_name": "Jonathan",
+      "aliases": ["jonathan", "jon", "jona", "johnny", "jonne", "jonies", "jonis", "jonethen", "joenathan", "joe nation", "joenation", "faxekondi_lover", "jones"],
+      "discord_id": "708408693393457163",
+      "quote_count": 0
+    },
+    "Person_2": {
+      "canonical_name": "Elias",
+      "aliases": ["elias", "elais", "ikkeelias"],
+      "discord_id": "491260143833579530",
+      "quote_count": 0
+    },
+    "Person_3": {
+      "canonical_name": "Gustav",
+      "aliases": ["gustav", "gusdav", "inf_gustav", "gustav husted"],
+      "discord_id": "747141465527812267",
+      "quote_count": 0
+    },
+    "Person_4": {
+      "canonical_name": "Gustav Vagner Pørtner Toft",
+      "aliases": ["gustav porno tørst", "porno torst", "gustav_pt", "porno"],
+      "discord_id": "581452298107224065",
+      "quote_count": 0
+    },
+    "Person_5": {
+      "canonical_name": "Valdemar",
+      "aliases": ["valdemar", "walmart", "valdemarskafte", "valde"],
+      "discord_id": "782852615075004426",
+      "quote_count": 0
+    },
+    "Person_6": {
+      "canonical_name": "Noah",
+      "aliases": ["noah"],
+      "discord_id": "474874341830688778",
+      "quote_count": 0
+    },
+    "Person_7": {
+      "canonical_name": "Jesper",
+      "aliases": ["jesper", "jepser"],
+      "discord_id": null,
+      "quote_count": 0
+    },
+    "Person_8": {
+      "canonical_name": "Magnus",
+      "aliases": ["magnus"],
+      "discord_id": null,
+      "quote_count": 0
+    },
+    "Person_9": {
+      "canonical_name": "Mini",
+      "aliases": ["mini", "minimalitet"],
+      "discord_id": null,
+      "quote_count": 0
+    },
+    "Person_10": {
+      "canonical_name": "Maxi",
+      "aliases": ["maxi", "maximus"],
+      "discord_id": null,
+      "quote_count": 0
+    }
   }
 }
