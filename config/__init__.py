@@ -68,3 +68,24 @@ def reload_aliases():
     global NAME_ALIASES, DISCORD_ID_TO_NAME
     NAME_ALIASES, DISCORD_ID_TO_NAME = load_aliases()
     return NAME_ALIASES, DISCORD_ID_TO_NAME
+
+
+# =============================================================================
+# MATCHING SYSTEM CONFIGURATION
+# =============================================================================
+
+# Path to enhanced aliases configuration
+ENHANCED_ALIASES_PATH = os.path.join(os.path.dirname(__file__), 'aliases_new.json')
+
+# Path to matching configuration
+MATCHING_CONFIG_PATH = os.path.join(os.path.dirname(__file__), 'matching_config.json')
+
+def get_matching_config_path():
+    """Get the path to the matching configuration file."""
+    return MATCHING_CONFIG_PATH
+
+def get_aliases_path():
+    """Get the path to the enhanced aliases configuration file."""
+    if os.path.exists(ENHANCED_ALIASES_PATH):
+        return ENHANCED_ALIASES_PATH
+    return os.path.join(os.path.dirname(__file__), 'aliases.json')

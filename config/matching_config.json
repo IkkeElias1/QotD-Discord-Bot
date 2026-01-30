@@ -1,0 +1,31 @@
+{
+  "matching_layers": {
+    "fuzzy_string": true,
+    "phonetic": true,
+    "standard_nicknames": false,
+    "custom_aliases": true
+  },
+  "thresholds": {
+    "jaro_winkler_min": 0.85,
+    "levenshtein_min": 0.80,
+    "token_set_min": 0.75,
+    "token_sort_min": 0.80,
+    "phonetic_primary_min": 0.95,
+    "phonetic_normal_min": 0.85,
+    "phonetic_weak_min": 0.70,
+    "hybrid_min": 0.75
+  },
+  "weights": {
+    "jaro_winkler": 0.35,
+    "levenshtein": 0.25,
+    "token_sort": 0.20,
+    "token_set": 0.20
+  },
+  "blocking_strategy": "multi_level",
+  "debug_mode": false,
+  "llm_validation": {
+    "enabled": false,
+    "ambiguity_range": [0.60, 0.80],
+    "provider": null
+  }
+}

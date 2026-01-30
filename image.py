@@ -5,6 +5,8 @@ Creates styled quote images with optional avatar backgrounds.
 """
 
 import io
+import os
+from urllib.request import urlopen
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
@@ -19,22 +21,61 @@ from config import (
 # =============================================================================
 
 def load_fonts():
-    """Load fonts with fallback to default."""
-    try:
-        return {
-            'title': ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 32),
-            'quote': ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 48),
-            'author': ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 36),
-            'quote_mark': ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 150),
-        }
-    except Exception:
-        default = ImageFont.load_default()
-        return {
-            'title': default,
-            'quote': default,
-            'author': default,
-            'quote_mark': default
-        }
+    """
+    Load fonts with priority:
+    1. Local 'font.ttf' file (Best for servers/hosting)
+    2. Windows System Fonts
+    3. Fallback default
+    """
+    # Define generic sizes
+    sizes = {
+        'title': 60,
+        'quote': 90,
+        'author': 64,
+        'quote_mark': 240
+    }
+
+    # 1. Try to load local 'font.ttf' first
+    local_font = "font.ttf"
+    if os.path.exists(local_font):
+        try:
+            return {
+                'title': ImageFont.truetype(local_font, sizes['title']),
+                'quote': ImageFont.truetype(local_font, sizes['quote']),
+                'author': ImageFont.truetype(local_font, sizes['author']),
+                'quote_mark': ImageFont.truetype(local_font, sizes['quote_mark']),
+            }
+        except Exception as e:
+            print(f"Failed to load local font: {e}")
+
+    # 2. Try Windows System Fonts (Keep existing logic as backup)
+    font_paths = [
+        # Segoe UI
+        ("C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/segoeui.ttf", "C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/segoeui.ttf"),
+        # Arial
+        ("C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/arial.ttf", "C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/arial.ttf"),
+    ]
+
+    for paths in font_paths:
+        try:
+            return {
+                'title': ImageFont.truetype(paths[0], sizes['title']),
+                'quote': ImageFont.truetype(paths[1], sizes['quote']),
+                'author': ImageFont.truetype(paths[2], sizes['author']),
+                'quote_mark': ImageFont.truetype(paths[3], sizes['quote_mark']),
+            }
+        except Exception:
+            continue
+
+    # 3. Final Fallback - Warning if we reach here
+    print("WARNING: Could not load any custom fonts. Using tiny default font.")
+    default = ImageFont.load_default()
+    return {
+        'title': default,
+        'quote': default,
+        'author': default,
+        'quote_mark': default
+    }
 
 
 # =============================================================================
@@ -131,10 +172,10 @@ def draw_quote_text(draw, fonts, quote_text):
     Returns:
         tuple: (start_y, total_text_height) for positioning author
     """
-    wrapped_lines = wrap_text(quote_text, fonts['quote'], IMAGE_WIDTH - 200, draw)
-    line_height = 60
+    wrapped_lines = wrap_text(quote_text, fonts['quote'], IMAGE_WIDTH - 140, draw)
+    line_height = 105
     total_text_height = len(wrapped_lines) * line_height
-    start_y = (IMAGE_HEIGHT - total_text_height) / 2 - 20
+    start_y = (IMAGE_HEIGHT - total_text_height) / 2 - 40
     
     for i, line in enumerate(wrapped_lines):
         line_bbox = draw.textbbox((0, 0), line, font=fonts['quote'])
@@ -144,6 +185,8 @@ def draw_quote_text(draw, fonts, quote_text):
         draw.text((x, y), line, font=fonts['quote'], fill=TEXT_COLOR)
     
     return start_y, total_text_height
+    
+    return start_y, total_text_height
 
 
 def draw_author(draw, fonts, author, start_y, total_text_height):
@@ -151,7 +194,7 @@ def draw_author(draw, fonts, author, start_y, total_text_height):
     author_text = f"- {author}"
     author_bbox = draw.textbbox((0, 0), author_text, font=fonts['author'])
     author_width = author_bbox[2] - author_bbox[0]
-    author_y = start_y + total_text_height + 40
+    author_y = start_y + total_text_height + 50
     draw.text(((IMAGE_WIDTH - author_width) / 2, author_y), author_text, font=fonts['author'], fill=AUTHOR_COLOR)
 
 
